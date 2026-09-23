@@ -6,8 +6,8 @@ cd "$(dirname "$0")/../public/images"
 base=https://covalenceip.com/wp-content/uploads
 for f in \
   2024/01/homepage-banner-2.jpg 2024/01/Mask-group-1-1.png 2024/01/map-3.png \
-  2024/01/Group-4.svg 2024/01/Group-5.svg 2024/01/Clip-path-group-1.svg \
-  2024/01/Group-1-2.svg 2024/01/Group-2-1.svg 2024/01/image-1-1.svg 2024/01/image-2-1.svg \
+  2024/01/Group-1-2.svg 2024/01/Group-2-1.svg \
+  2024/01/image-1-1.svg 2024/01/image-2-1.svg \
   2024/01/pipes-1-1.png 2024/01/bg-2.png 2024/01/map-1.png 2024/01/footer-dots-1.png \
   2024/01/CovalencePurpleLogo.svg 2024/01/CovalencePurpleLogo1.png \
   2024/02/step-1.png 2024/02/step-02.png 2024/02/step-03.png \

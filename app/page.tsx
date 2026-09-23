@@ -11,7 +11,7 @@ export const metadata = {
 const criteria = [
   {
     title: "Reserve Quality",
-    icon: "Group-4.svg",
+    icon: "criteria-reserve-quality.png",
     items: [
       "High certainty",
       "On stable decline (8-12%)",
@@ -21,17 +21,16 @@ const criteria = [
   },
   {
     title: "Cost Structure",
-    icon: "Group-5.svg",
+    icon: "criteria-cost-structure.png",
     items: ["Clean ops", "Low operating & capital costs", "Low reclamation costs"],
   },
   {
     title: "Marketing",
-    icon: "Clip-path-group-1.svg",
+    icon: "criteria-marketing.png",
     items: ["Confirmed takeaway capacity", "Low price differentials", "Ability to hedge"],
   },
   {
     title: "Reinvestment Opp.",
-    icon: "Group-1-2.svg",
     items: [
       "< 30% of EBITDA to reinvest",
       "Well workovers",
@@ -41,7 +40,6 @@ const criteria = [
   },
   {
     title: "ESG / Regulatory",
-    icon: "Group-2-1.svg",
     items: [
       "O&G friendly jurisdictions",
       "Ease of operating/permitting",
@@ -219,10 +217,13 @@ export default function Home() {
                 label={c.title}
                 trigger={
                   <span className="flex items-center gap-3 text-[18px] font-semibold text-white">
-                    <span className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-brand p-2.5">
-                      {/* eslint-disable-next-line @next/next/no-img-element -- small SVG icon */}
-                      <img src={`/images/${c.icon}`} alt="" className="h-10 w-10" />
-                    </span>
+                    {/* The icon PNGs carry their own purple circle; a criterion
+                        still waiting on its icon shows the bare circle. */}
+                    {c.icon ? (
+                      <Image src={`/images/${c.icon}`} alt="" width={60} height={60} className="shrink-0" />
+                    ) : (
+                      <span className="h-[60px] w-[60px] shrink-0 rounded-full bg-brand" />
+                    )}
                     {c.title}
                   </span>
                 }
