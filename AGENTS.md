@@ -46,8 +46,8 @@ Vercel env vars:
   domain must be verified in Mandrill (Settings -> Domains: DKIM and SPF), or Mandrill
   accepts the request and then rejects the message.
 
-Without either, the form shows an error pointing at the email address. The recipient is
-`site.contactTo` in `lib/site.ts`. It is Dave O. only for now, on purpose.
+Without either, the form shows an error pointing at the email address. The recipients are
+`site.contactTo` in `lib/site.ts`: info@covalenceip.com and Dave O., each sent a separate copy.
 
 ## The WordPress site was compromised
 
