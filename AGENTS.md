@@ -38,14 +38,16 @@ while WordPress is still live.
 
 ## Contact form
 
-`app/actions.ts` sends submissions through Resend's HTTP API. Needs these Vercel env vars:
+`app/actions.ts` sends submissions through Mandrill (Mailchimp Transactional). Needs these
+Vercel env vars:
 
-- `RESEND_API_KEY` - required; without it the form shows an error pointing at the email.
-- `CONTACT_FROM` - sender, e.g. `Covalence IP Website <website@covalenceip.com>`. The domain
-  must be verified in Resend. Without it, Resend's shared `onboarding@resend.dev` sender is
-  used, which only delivers to the Resend account owner's own address.
+- `MANDRILL_API_KEY` - required.
+- `CONTACT_FROM_EMAIL` - required; the sender address, e.g. `website@covalenceip.com`. Its
+  domain must be verified in Mandrill (Settings -> Domains: DKIM and SPF), or Mandrill
+  accepts the request and then rejects the message.
 
-The recipient is `site.contactTo` in `lib/site.ts`. It is Dave O. only for now, on purpose.
+Without either, the form shows an error pointing at the email address. The recipient is
+`site.contactTo` in `lib/site.ts`. It is Dave O. only for now, on purpose.
 
 ## The WordPress site was compromised
 
