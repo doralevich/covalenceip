@@ -29,3 +29,26 @@ Until the domain cuts over, WordPress is still the live site.
   WordPress is retired.
 - `vercel.json` pins `{"framework": "nextjs"}` so the Vercel preset can't drift to "Other".
 - `app/robots.ts` blocks crawling everywhere except `VERCEL_ENV=production`.
+
+## Images
+
+Every image is served from `public/images/`, named exactly as it was in
+`wp-content/uploads`. `scripts/fetch-wp-images.sh` lists the full set and can pull them
+while WordPress is still live.
+
+## Contact form
+
+`app/actions.ts` sends submissions through Resend's HTTP API. Needs these Vercel env vars:
+
+- `RESEND_API_KEY` - required; without it the form shows an error pointing at the email.
+- `CONTACT_FROM` - sender, e.g. `Covalence IP Website <website@covalenceip.com>`. The domain
+  must be verified in Resend. Without it, Resend's shared `onboarding@resend.dev` sender is
+  used, which only delivers to the Resend account owner's own address.
+
+The recipient is `site.contactTo` in `lib/site.ts`. It is Dave O. only for now, on purpose.
+
+## The WordPress site was compromised
+
+The WordPress home page carried a hidden casino spam link (`vavada` / tolcenters.org,
+positioned off-screen at `left:-9999px`). It was deliberately not migrated. Never copy
+markup from the WordPress export verbatim; retype the copy.

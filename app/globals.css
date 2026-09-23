@@ -1,25 +1,56 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Colors taken from the Divi layouts on the WordPress site. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-brand: #2626a7;
+  --color-brand-dark: #363a96;
+  --color-brand-hover: #214f94;
+  --color-ocean: #0079c0;
+  --color-lilac: #eeeefb;
+  --color-mist: #f5f5f5;
+  --color-navy: #011246;
+  --color-ink: #0a0404;
+  --color-body: #666666;
+  --font-sans: var(--font-open-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep anchored sections clear of the sticky header. */
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #ffffff;
+  color: var(--color-body);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #333333;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.text-shadow {
+  text-shadow: 0.08em 0.08em 0.08em rgba(0, 0, 0, 0.4);
+}
+
+@keyframes popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
