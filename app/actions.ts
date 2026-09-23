@@ -29,42 +29,59 @@ export async function sendContact(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error("contact form: RESEND_API_KEY is not set");
+  const apiKey = process.env.MANDRILL_API_KEY;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+  if (!apiKey || !fromEmail) {
+    console.error("contact form: MANDRILL_API_KEY or CONTACT_FROM_EMAIL is not set");
     return {
       status: "error",
       message: `Sorry, the form isn't working right now. Please email ${site.email}.`,
     };
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: process.env.CONTACT_FROM ?? "Covalence IP Website <onboarding@resend.dev>",
-      to: [site.contactTo],
-      reply_to: email,
-      subject: `Website inquiry from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || "-"}`,
-        "",
-        message,
-      ].join("\n"),
-    }),
-  });
+  const failed: ContactState = {
+    status: "error",
+    message: `Sorry, your message couldn't be sent. Please email ${site.email}.`,
+  };
 
-  if (!res.ok) {
-    console.error("contact form: Resend returned", res.status, await res.text());
-    return {
-      status: "error",
-      message: `Sorry, your message couldn't be sent. Please email ${site.email}.`,
-    };
+  // Mandrill answers 200 with a per-recipient status even when it refuses to
+  // send (e.g. the from address isn't on a verified sending domain), so the
+  // HTTP status alone isn't enough.
+  let result: unknown;
+  try {
+    const res = await fetch("https://mandrillapp.com/api/1.0/messages/send.json", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        key: apiKey,
+        message: {
+          from_email: fromEmail,
+          from_name: "Covalence IP Website",
+          to: [{ email: site.contactTo, type: "to" }],
+          headers: { "Reply-To": email },
+          subject: `Website inquiry from ${name}`,
+          text: [
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Phone: ${phone || "-"}`,
+            "",
+            message,
+          ].join("\n"),
+        },
+      }),
+    });
+    result = await res.json();
+  } catch (err) {
+    console.error("contact form: Mandrill request failed", err);
+    return failed;
+  }
+
+  const recipient = Array.isArray(result)
+    ? (result[0] as { status?: string; reject_reason?: string | null })
+    : undefined;
+  if (!recipient || !["sent", "queued", "scheduled"].includes(recipient.status ?? "")) {
+    console.error("contact form: Mandrill did not send", JSON.stringify(result));
+    return failed;
   }
 
   return { status: "sent" };
