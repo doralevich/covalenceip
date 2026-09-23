@@ -203,8 +203,8 @@ export default function Home() {
             <Image
               src="/images/map-3.png"
               alt="COVALENCE INVESTMENT PARTNERS"
-              width={800}
-              height={600}
+              width={1797}
+              height={1023}
               className="h-auto w-full"
             />
           </div>
@@ -306,8 +306,8 @@ export default function Home() {
             <Image
               src="/images/map-1.png"
               alt=""
-              width={500}
-              height={400}
+              width={427}
+              height={406}
               className="h-auto w-full max-w-[500px]"
             />
             <a href={`mailto:${site.email}`} className="text-white">

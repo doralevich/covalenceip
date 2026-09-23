@@ -14,34 +14,37 @@
   --font-sans: var(--font-open-sans);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* In the base layer so Tailwind utilities (text-white on dark sections) win. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-/* Keep anchored sections clear of the sticky header. */
-[id] {
-  scroll-margin-top: 6rem;
-}
+  /* Keep anchored sections clear of the sticky header. */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
 
-body {
-  background: #ffffff;
-  color: var(--color-body);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.7;
-}
+  body {
+    background: #ffffff;
+    color: var(--color-body);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  color: #333333;
-  font-weight: 500;
-  line-height: 1.2;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #333333;
+    font-weight: 500;
+    line-height: 1.2;
+  }
 
-.text-shadow {
-  text-shadow: 0.08em 0.08em 0.08em rgba(0, 0, 0, 0.4);
+  .text-shadow {
+    text-shadow: 0.08em 0.08em 0.08em rgba(0, 0, 0, 0.4);
+  }
 }
 
 @keyframes popup-in {
