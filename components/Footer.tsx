@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 export function Footer() {
   return (
     <footer>
-      <div className="bg-navy bg-[url(/images/footer-dots-1.png)] bg-contain bg-right bg-no-repeat py-14">
+      <div className="bg-navy py-14">
         <div className="mx-auto flex max-w-[1080px] justify-center px-6">
           {/* eslint-disable-next-line @next/next/no-img-element -- SVG logo, no optimisation needed */}
           <img

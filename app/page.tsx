@@ -31,6 +31,7 @@ const criteria = [
   },
   {
     title: "Reinvestment Opp.",
+    icon: "Group-1-2.svg",
     items: [
       "< 30% of EBITDA to reinvest",
       "Well workovers",
@@ -40,6 +41,7 @@ const criteria = [
   },
   {
     title: "ESG / Regulatory",
+    icon: "Group-2-1.svg",
     items: [
       "O&G friendly jurisdictions",
       "Ease of operating/permitting",
@@ -177,7 +179,7 @@ export default function Home() {
       {/* Investment strategy */}
       <section
         id="investment"
-        className="bg-ocean bg-[url(/images/Mask-group-1-1.png)] bg-cover bg-left px-6 py-[70px] text-white"
+        className="bg-ocean px-6 py-[70px] text-white"
       >
         <div className="mx-auto grid max-w-[1080px] items-center gap-10 md:grid-cols-5">
           <div className="text-shadow text-center text-[14px] leading-[1.4] md:col-span-3 md:text-left">
@@ -217,12 +219,15 @@ export default function Home() {
                 label={c.title}
                 trigger={
                   <span className="flex items-center gap-3 text-[18px] font-semibold text-white">
-                    {/* The icon PNGs carry their own purple circle; a criterion
-                        still waiting on its icon shows the bare circle. */}
-                    {c.icon ? (
-                      <Image src={`/images/${c.icon}`} alt="" width={60} height={60} className="shrink-0" />
+                    {/* The PNG icons carry their own purple circle; the SVGs
+                        are bare glyphs, so they get the circle here. */}
+                    {c.icon.endsWith(".svg") ? (
+                      <span className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-brand p-2.5">
+                        {/* eslint-disable-next-line @next/next/no-img-element -- small SVG icon */}
+                        <img src={`/images/${c.icon}`} alt="" className="h-10 w-10" />
+                      </span>
                     ) : (
-                      <span className="h-[60px] w-[60px] shrink-0 rounded-full bg-brand" />
+                      <Image src={`/images/${c.icon}`} alt="" width={60} height={60} className="shrink-0" />
                     )}
                     {c.title}
                   </span>
