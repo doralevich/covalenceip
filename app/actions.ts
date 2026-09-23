@@ -57,7 +57,9 @@ export async function sendContact(
         message: {
           from_email: fromEmail,
           from_name: "Covalence IP Website",
-          to: [{ email: site.contactTo, type: "to" }],
+          to: site.contactTo.map((email) => ({ email, type: "to" })),
+          // A separate copy per inbox, so neither sees the other address.
+          preserve_recipients: false,
           headers: { "Reply-To": email },
           subject: `Website inquiry from ${name}`,
           text: [
@@ -76,13 +78,18 @@ export async function sendContact(
     return failed;
   }
 
-  const recipient = Array.isArray(result)
-    ? (result[0] as { status?: string; reject_reason?: string | null })
-    : undefined;
-  if (!recipient || !["sent", "queued", "scheduled"].includes(recipient.status ?? "")) {
-    console.error("contact form: Mandrill did not send", JSON.stringify(result));
-    return failed;
+  // One entry per recipient. The visitor's message counts as delivered if any
+  // inbox got it; a partial rejection is logged so it can be fixed.
+  const recipients = Array.isArray(result)
+    ? (result as { email?: string; status?: string; reject_reason?: string | null }[])
+    : [];
+  const delivered = recipients.filter((r) =>
+    ["sent", "queued", "scheduled"].includes(r.status ?? ""),
+  );
+  if (delivered.length < site.contactTo.length) {
+    console.error("contact form: Mandrill did not send to every recipient", JSON.stringify(result));
   }
+  if (delivered.length === 0) return failed;
 
   return { status: "sent" };
 }
