@@ -15,7 +15,7 @@ const criteria = [
     items: [
       "High certainty",
       "On stable decline (8-12%)",
-      "Reserve life index at last 8 Years",
+      "Reserve life index at least 8 years",
       "80%+ PDP",
     ],
   },
@@ -49,7 +49,7 @@ const criteria = [
       "Minimal environmental issues",
       "Visibility to reduce CO2 and CH4",
     ],
-    note: "*There can be no guarantee that Covalences ESG efforts will be successful or that its investments create a positive ESG impact.",
+    note: "*There can be no guarantee that Covalence’s ESG efforts will be successful or that its investments create a positive ESG impact.",
   },
 ];
 
@@ -156,7 +156,7 @@ export default function Home() {
             <p className="mt-4">
               Covalence Investment Partners will seek to apply a disciplined approach to
               acquiring assets and implementing an operationally intensive method to managing
-              the assets inwhich it invests as they have done together since 2017. They blend
+              the assets in which it invests as they have done together since 2017. They blend
               a range of complementary financial skills and a foundation of technical and
               operational expertise.
             </p>
