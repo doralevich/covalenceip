@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Open_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     template: `%s - ${site.name}`,
   },
   description: site.description,
+  verification: {
+    google: "jozZ1FNdcS_N_61TItUEHLguksxvJeTWkLOQCDPeouE",
+  },
   openGraph: {
     siteName: site.name,
     type: "website",
@@ -37,6 +41,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      {/* Production only, so preview deployments don't count as visits. */}
+      {process.env.VERCEL_ENV === "production" && <GoogleAnalytics gaId={site.gaId} />}
     </html>
   );
 }

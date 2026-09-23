@@ -5,6 +5,7 @@ export const site = {
   description:
     "Covalence Investment Partners will seek to apply a disciplined approach to acquiring assets and implementing an operationally intensive method to managing the assets in which it invests.",
   email: "info@covalenceip.com",
+  gaId: "G-QBKS65SXQT",
   // Where contact form submissions are delivered. Each address gets its
   // own copy.
   contactTo: ["info@covalenceip.com", "daveo@designsbydaveo.com"],
