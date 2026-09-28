@@ -5,11 +5,12 @@ export function Footer() {
     <footer>
       <div className="bg-navy py-14">
         <div className="mx-auto flex max-w-[1080px] justify-center px-6">
+          {/* The purple logo, turned solid white so it reads on the navy footer. */}
           {/* eslint-disable-next-line @next/next/no-img-element -- SVG logo, no optimisation needed */}
           <img
             src="/images/CovalencePurpleLogo.svg"
             alt={`${site.name} Logo`}
-            className="h-auto w-3/4 max-w-[370px] md:w-[34%]"
+            className="h-auto w-3/4 max-w-[370px] brightness-0 invert md:w-[34%]"
           />
         </div>
       </div>
