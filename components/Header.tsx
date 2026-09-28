@@ -40,7 +40,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="px-2.5 py-2 text-[18px] font-semibold tracking-[0.5px] text-brand transition-colors hover:text-brand-hover"
+                    className="px-2.5 py-2 text-[17px] font-semibold tracking-[0.5px] text-brand transition-colors hover:text-brand-hover"
                   >
                     {item.label}
                   </Link>
