@@ -142,7 +142,7 @@ export default function Home() {
       <section className="bg-mist px-6 py-[50px]">
         <div id="about" className="mx-auto max-w-[1080px] bg-white p-[30px]">
           <div className="mx-auto w-full text-[16px] font-medium md:w-[90%] md:text-justify md:text-[18px]">
-            <h2 className="mb-6 text-center font-bold text-brand-dark text-[20px] leading-[1.7] md:text-[36px] lg:text-[48px]">
+            <h2 className="mb-6 font-bold text-brand-dark text-[20px] leading-[1.7] md:text-[36px] lg:text-[48px]">
               About Covalence Investment Partners
             </h2>
             <p>

@@ -34,7 +34,7 @@ export default function AboutUs() {
   return (
     <section className="px-6 py-[54px]">
       <div className="mx-auto max-w-[1080px]">
-        <h1 className="text-center text-[30px] font-bold text-brand-dark">About Covalence Investment Partners</h1>
+        <h1 className="text-[30px] font-bold text-brand-dark">About Covalence Investment Partners</h1>
         <h2 className="mt-4 text-lg">
           Covalence Investment Partners has been established to invest in the traditional
           energy space
