@@ -165,7 +165,7 @@ export default function Home() {
               providing oversight to assets in many O&amp;G basins in North America.
             </p>
           </div>
-          <div className="mt-8 text-center">
+          <div className="mx-auto mt-8 w-full md:w-[90%]">
             <Link
               href="/about-us/"
               className="inline-block rounded-full bg-brand-dark px-8 py-3 text-base font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand"

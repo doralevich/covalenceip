@@ -2,6 +2,8 @@
 
 /* Colors taken from the Divi layouts on the WordPress site. */
 @theme inline {
+  /* Wide enough for the full-size logo beside the full nav. */
+  --breakpoint-wide: 87.5rem;
   --color-brand: #2626a7;
   --color-brand-dark: #363a96;
   --color-brand-hover: #214f94;
