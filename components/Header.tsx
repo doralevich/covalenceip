@@ -30,17 +30,17 @@ export function Header() {
             <img
               src="/images/CovalencePurpleLogo.svg"
               alt={`${site.name} Logo`}
-              className="h-auto w-[240px] md:w-[322px] lg:w-[400px]"
+              className="h-auto w-[240px] md:w-[322px] wide:w-[400px]"
             />
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:block">
+          <nav aria-label="Main" className="hidden xl:block">
             <ul className="flex items-center">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="px-2.5 py-2 font-semibold tracking-[0.5px] text-brand transition-colors hover:text-brand-hover"
+                    className="px-2.5 py-2 text-[18px] font-semibold tracking-[0.5px] text-brand transition-colors hover:text-brand-hover"
                   >
                     {item.label}
                   </Link>
@@ -51,7 +51,7 @@ export function Header() {
 
           <button
             type="button"
-            className="rounded border border-brand p-2 text-brand lg:hidden"
+            className="rounded border border-brand p-2 text-brand xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -64,7 +64,7 @@ export function Header() {
         </div>
 
         {open && (
-          <nav id="mobile-menu" aria-label="Main" className="border-t border-[#dddddd] lg:hidden">
+          <nav id="mobile-menu" aria-label="Main" className="border-t border-[#dddddd] xl:hidden">
             <ul className="mx-auto max-w-[90%] py-2">
               {nav.map((item) => (
                 <li key={item.href}>
