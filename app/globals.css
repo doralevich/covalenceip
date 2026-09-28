@@ -11,7 +11,7 @@
   --color-navy: #011246;
   --color-ink: #0a0404;
   --color-body: #666666;
-  --font-sans: var(--font-open-sans);
+  --font-sans: var(--font-plus-jakarta-sans);
 }
 
 /* In the base layer so Tailwind utilities (text-white on dark sections) win. */
@@ -29,8 +29,11 @@
     background: #ffffff;
     color: var(--color-body);
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
+    /* Plus Jakarta Sans has a narrow word space; at body sizes words crowd
+       together without a little extra. */
+    word-spacing: 0.08em;
   }
 
   h1,
