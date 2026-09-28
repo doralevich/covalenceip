@@ -42,7 +42,7 @@ export function Popup({
         }}
         className="m-auto w-[367px] max-w-[calc(100vw-2rem)] rounded bg-white p-0 shadow-2xl backdrop:bg-black/60 open:animate-[popup-in_0.4s_ease-out]"
       >
-        <div className="relative p-8 pt-10 text-[15px] leading-relaxed text-[#333]">
+        <div className="relative p-8 pt-10 text-[16px] leading-relaxed text-[#333]">
           <button
             type="button"
             onClick={() => setOpen(false)}

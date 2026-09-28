@@ -125,24 +125,24 @@ export default function Home() {
       {/* Hero */}
       <section className="bg-[url(/images/homepage-banner-2.jpg)] bg-cover bg-center px-6 py-[150px] md:py-[250px]">
         <div className="text-shadow mx-auto max-w-[1080px] text-center text-white">
-          <h1 className="text-[36px] font-extrabold tracking-[0.5px] text-white uppercase md:text-[48px]">
+          <h1 className="[text-shadow:2px_2px_6px_rgba(0,0,0,0.55)] text-[40px] font-extrabold tracking-[0.5px] text-white uppercase md:text-[56px]">
             Covalence Investment Partners
           </h1>
-          <p className="mt-4 text-lg font-semibold md:text-xl">
+          <p className="mt-4 text-xl font-semibold md:text-[22px]">
             Dedicated to traditional energy investments, employs a
             <br className="hidden md:inline" /> demonstrated strategy aligning partners and
             assets in an effort to achieve optimal success.
           </p>
           <hr className="mx-auto my-6 w-[15%] border-t border-white" />
-          <h2 className="text-lg font-semibold text-white">{site.tagline}</h2>
+          <h2 className="text-xl font-semibold md:text-[22px] text-white">{site.tagline}</h2>
         </div>
       </section>
 
       {/* About */}
       <section className="bg-mist px-6 py-[50px]">
         <div id="about" className="mx-auto max-w-[1080px] bg-white p-[30px]">
-          <div className="mx-auto w-full text-[16px] md:w-[90%] md:text-justify md:text-[18px]">
-            <h2 className="mb-6 text-center text-[20px] leading-[1.7] md:text-[36px] lg:text-[48px]">
+          <div className="mx-auto w-full text-[16px] font-medium md:w-[90%] md:text-justify md:text-[18px]">
+            <h2 className="mb-6 text-center font-bold text-brand-dark text-[20px] leading-[1.7] md:text-[36px] lg:text-[48px]">
               About Covalence Investment Partners
             </h2>
             <p>
@@ -168,7 +168,7 @@ export default function Home() {
           <div className="mt-8 text-center">
             <Link
               href="/about-us/"
-              className="inline-block rounded-[3px] border-2 border-brand px-5 py-1.5 text-lg font-medium text-brand transition-colors hover:bg-brand hover:text-white"
+              className="inline-block rounded-full bg-brand-dark px-8 py-3 text-base font-semibold tracking-wide text-white uppercase transition-colors hover:bg-brand"
             >
               The Team
             </Link>
@@ -182,7 +182,7 @@ export default function Home() {
         className="bg-ocean px-6 py-[70px] text-white"
       >
         <div className="mx-auto grid max-w-[1080px] items-center gap-10 md:grid-cols-5">
-          <div className="text-shadow text-center text-[14px] leading-[1.4] md:col-span-3 md:text-left">
+          <div className="text-shadow text-center text-[16px] leading-[1.5] md:col-span-3 md:text-left">
             <h2 className="text-[36px] font-medium text-white">Covalence Investment Partners</h2>
             <h3 className="mt-2 text-lg text-white">Investment Strategy</h3>
             <p className="mt-4">
